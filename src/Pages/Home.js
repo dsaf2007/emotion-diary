@@ -1,45 +1,71 @@
-import {useState, useContext, useEffect} from "react";
+import { useState, useContext, useEffect } from "react";
 import { DiaryStateContext } from "../App";
 
 import MyHeader from "./../Components/MyHeader";
-import MyButton from "./../Components/MyButton"
+import MyButton from "./../Components/MyButton";
+import DiaryList from "../Components/DiaryList";
+import Diary from "./Diary";
 
 const Home = () => {
+	const diaryList = useContext(DiaryStateContext);
 
+	const [data, setData] = useState([]);
 
-    const diaryList = useContext(DiaryStateContext);
+	const [curDate, setCurDate] = useState(new Date());
 
-    const [data, setData] = useState([]);
+	const headDate = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
 
-    const [curDate, setCurDate] = useState(new Date());
+	useEffect(() => {
+		if (diaryList.length >= 1) {
+			const firstDay = new Date(
+				curDate.getFullYear(),
+				curDate.getMonth(),
+				1
+			).getTime();
+			const lastDay = new Date(
+				curDate.getFullYear(),
+				curDate.getMonth() + 1,
+				0
+			).getTime();
 
-    const headDate = `${curDate.getFullYear()}년 ${curDate.getMonth()+1}월`;
+			setData(
+				diaryList.filter(
+					(it) => firstDay <= it.date && it.date <= lastDay
+				)
+			);
+		}
+	}, [diaryList, curDate]);
 
-    useEffect(()=>{
-        const firstDay = new Date(curDate.getFullYear(), curDate.getMonth(),1).getTime();
-        const lastDay = new Date(curDate.getFullYear(), curDate.getMonth()+1,0).getTime();
+	const increaseMonth = () => {
+		setCurDate(
+			new Date(
+				curDate.getFullYear(),
+				curDate.getMonth() + 1,
+				curDate.getDate()
+			)
+		);
+	};
 
-        setData(diaryList.filter((it)=> firstDay <= it.date && it.date <= lastDay))
-    },[diaryList,curDate]);
+	const decreaseMonth = () => {
+		setCurDate(
+			new Date(
+				curDate.getFullYear(),
+				curDate.getMonth() - 1,
+				curDate.getDate()
+			)
+		);
+	};
 
-    const increaseMonth = () => {
-        setCurDate(new Date(curDate.getFullYear(), curDate.getMonth() + 1,curDate.getDate()));
-    }
-
-    const decreaseMonth = () => {
-        setCurDate(new Date(curDate.getFullYear(), curDate.getMonth() - 1, curDate.getDate()));
-    }
-
-    return(
-    <div>
-        <MyHeader
-        headText={headDate}
-        leftChild={<MyButton text={"<"} onClick={decreaseMonth}/>}
-        rightChild={<MyButton text={">"} onClick={increaseMonth}/>}
-        />
-        <h1>Home</h1>
-        <p>이곳은 홈 입니다.</p>
-    </div>);
-}
+	return (
+		<div>
+			<MyHeader
+				headText={headDate}
+				leftChild={<MyButton text={"<"} onClick={decreaseMonth} />}
+				rightChild={<MyButton text={">"} onClick={increaseMonth} />}
+			/>
+			<DiaryList diaryList={data}/>
+		</div>
+	);
+};
 
 export default Home;
