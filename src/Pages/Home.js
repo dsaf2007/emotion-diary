@@ -1,9 +1,13 @@
 import {useState} from "react";
+import { DiaryStateContext } from "../App";
 
 import MyHeader from "./../Components/MyHeader";
 import MyButton from "./../Components/MyButton"
 
 const Home = () => {
+
+
+    const diaryList = useContext(DiaryStateContext);
 
     const [curDate, setCurDate] = useState(new Date());
 
