@@ -1,6 +1,7 @@
 import { useState } from "react";
 import MyButton from "./MyButton";
 import { useNavigate } from "react-router-dom";
+import DiaryItem from "./DiaryItem";
 
 const sortOptionList = [
 	{ value: "latest", name: "최신순" },
@@ -50,7 +51,7 @@ const DiaryList = ({ diaryList }) => {
 		};
 		const copyList = JSON.parse(JSON.stringify(diaryList)); //deep copy
 
-		const filteredList = filter === "all " ? copyList : copyList.filter((it) => filterCallBack(it));
+		const filteredList = filter === "all" ? copyList : copyList.filter((it) => filterCallBack(it));
 		const sortedList = filteredList.sort(compare);
 		return sortedList;
 	};
@@ -75,7 +76,7 @@ const DiaryList = ({ diaryList }) => {
             </div>
         </div>
 			{getProcessedDiaryList().map((it) => (
-				<div key={it.id}>{it.content}</div>
+			<DiaryItem key={it.id} {...it} />
 			))}
 		</div>
 	);
