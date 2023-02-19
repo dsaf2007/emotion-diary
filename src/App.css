@@ -254,3 +254,12 @@ header button {
     justify-content: center;
     align-items: center;
 }
+
+.EmotionItem img{
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.EmotionItem span {
+    font-size: 18px;    
+}
