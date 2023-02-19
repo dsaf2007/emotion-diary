@@ -2,8 +2,11 @@ import DiaryEditor from "./../Components/DiaryEditor";
 
 
 const New = () => {
-
-    return <div></div>
+    return (
+    <div>
+        <DiaryEditor/>
+    </div>
+    )
 }
 
 export default New;
