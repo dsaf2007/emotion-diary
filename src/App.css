@@ -31,10 +31,10 @@ body {
 
 #root {
     background-color: white;
-    box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.App{
+.App {
     min-height: 100vh;
     padding-left: 20px;
     padding-right: 20px;
@@ -74,7 +74,7 @@ body {
 
 /* HEADER */
 
-header{
+header {
     padding-top: 20px;
     padding-bottom: 20px;
 
@@ -83,33 +83,33 @@ header{
     border-bottom: 1px solid #e2e2e2;
 }
 
-header > div {
+header>div {
     display: flex;
 }
 
-header .head_text{
+header .head_text {
     width: 50%;
     font-size: 25px;
     justify-content: center;
 }
 
-header .head_btn_left{
+header .head_btn_left {
     width: 25%;
     justify-content: start;
 }
 
-header .head_btn_right{
+header .head_btn_right {
     width: 25%;
     justify-content: end;
 }
 
-header button{
+header button {
     font-family: "Nanum Pen Script";
 }
 
 /* Diary List */
 
-.DiaryList .menu_wrapper{
+.DiaryList .menu_wrapper {
     margin-top: 20px;
     margin-bottom: 30px;
 
@@ -117,7 +117,7 @@ header button{
     justify-content: space-between;
 }
 
-.DiaryList .menu_wrapper .right_col{
+.DiaryList .menu_wrapper .right_col {
     flex-grow: 1;
 }
 
@@ -143,7 +143,7 @@ header button{
 
 /* Diary Item */
 
-.DiaryItem{
+.DiaryItem {
     padding-top: 15px;
     padding-bottom: 15px;
 
@@ -208,20 +208,18 @@ header button{
 
 /* DiaryEditor */
 
-.DiaryEditor{
-
-}
+.DiaryEditor {}
 
 .DiaryEditor section {
     margin-bottom: 40px;
 }
 
-.DiaryEditor h4{
+.DiaryEditor h4 {
     font-size: 22px;
     font-weight: bold;
 }
 
-.DiaryEditor .input_date{
+.DiaryEditor .input_date {
     border: none;
     border-radius: 5px;
     background-color: #ececec;
@@ -236,3 +234,17 @@ header button{
     font-size: 20px;
 }
 
+/* Emotion Item */
+
+.EmotionItem {
+    cursor: pointer;
+
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
