@@ -123,7 +123,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/New" element={<New />} />
-					<Route path="/Edit" element={<Edit />} />
+					<Route path="/Edit/:id" element={<Edit />} />
 					<Route path="/Diary/:id" element={<Diary />} />
 				</Routes>
 			</div>
