@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router-dom";
-
+import React from "react";
 import MyButton from "./MyButton";
 
 const DiaryItem = ({id, emotion, content, date}) => {
@@ -32,4 +32,4 @@ const DiaryItem = ({id, emotion, content, date}) => {
     </div>
 }
 
-export default DiaryItem;
+export default React.memo(DiaryItem);
